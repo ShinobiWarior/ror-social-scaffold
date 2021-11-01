@@ -99,6 +99,6 @@ Feel free to check the [issues page](https://github.com/Henryhaulka/ror-social-s
 Give a ⭐️ if you like this project!
 
 ## Acknowledgments
-This Project was inspired by Microverse
+This Project was inspired by Microverse.
 
 
