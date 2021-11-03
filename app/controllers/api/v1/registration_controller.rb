@@ -5,16 +5,15 @@ class Api::V1::RegistrationController < ApiController
     @user = User.new(user_params)
 
     if @user.save
-      render json: {token: JsonWebToken.encode(sub: @user.id)}
+      render json: { token: JsonWebToken.encode(sub: @user.id) }
     else
-      render json: { errors: "Registration failed!"}
+      render json: { errors: 'Registration failed!' }
     end
   end
 
-  private 
+  private
 
-  def user_params 
+  def user_params
     params.permit(:name, :email, :password, :password_confirmation)
   end
-
 end

@@ -39,8 +39,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 gem 'devise'
 
-
-#Add jwt gem
+# Add jwt gem
 gem 'jwt'
 
 group :development, :test do
