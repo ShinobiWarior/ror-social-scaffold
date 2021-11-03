@@ -75,11 +75,12 @@ Open `http://localhost:3000/` in your browser.
 
 
  To get auth token for unregistered users: 
- Send post request to this url
+ 
+ - Send post request to this url
  ```
  http://localhost:3000/api/v1/reg
  ```
- With body: 
+ - With body: 
  ```
  {
     "name": "Your name",
@@ -89,37 +90,42 @@ Open `http://localhost:3000/` in your browser.
 }
  ```
 To get auth token for registered users: 
-Send post request to this url
+
+- Send post request to this url
  ```
  http://localhost:3000/api/v1/auth
  ```
- With body: 
+ - With body: 
  ```
  {
     "email": "yourmail@mail.com",
     "password": "yourpassword"
 }
 
-To see all posts: 
-Send get request to this url
+ ```
+ To see all posts: 
+ 
+ - Send get request to this url
  ```
  http://localhost:3000/api/v1/posts
  ```
 
  To see all comments: 
-Send get request to this url
+ 
+ - Send get request to this url
  ```
  http://localhost:3000/api/v1/posts/{:post_id}/comments
  ```
  *Change the post_id
 
- To create comment for some post
- Send post request to this url
+ To create comment for some post:
+ 
+ - Send post request to this url
  ```
  http://localhost:3000/api/v1/posts/{:post_id}/comments
  ```
  *Change the post_id
- With body: 
+ - With body: 
  ```
  {
     "content": "Your comment here!"
@@ -128,7 +134,7 @@ Send get request to this url
  {
      "Authorization": "{token that you received earlier}"
  }
-
+ ```
 
 ## Authors
 
