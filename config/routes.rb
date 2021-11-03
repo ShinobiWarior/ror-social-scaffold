@@ -4,7 +4,7 @@ Rails.application.routes.draw do
       post :auth, to: "authentication#create"
       post :reg, to: "registration#create"
       resources :posts, only: [:index] do
-        resources :comments, only: [:index]
+        resources :comments, only: [:index, :create]
       end
     end
   end
