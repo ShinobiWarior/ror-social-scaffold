@@ -55,7 +55,7 @@ paths:
     post:
       summary: Get a token
       tags:
-      - Token
+      - Registered users token
       parameters: []
       responses:
         '201':
@@ -101,7 +101,6 @@ paths:
       summary: Retrieves a comments
       tags:
       - Comments
-      - Another Tag
       parameters:
       - name: id
         in: path
@@ -125,7 +124,28 @@ paths:
                 - title
                 - content
         '404':
-          description: blog not found
+          description: Comment not found
+        '406':
+          description: unsupported accept header
+  "/posts":
+    get:
+      summary: Retrieves a posts
+      tags:
+      - Posts
+      responses:
+        '200':
+          description: Post found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: string
+                required:
+                - content
+        '404':
+          description: Post not found
         '406':
           description: unsupported accept header
 servers:

@@ -90,7 +90,7 @@ describe 'Comments API' do
   path '/posts/{id}/comments' do
 
     get 'Retrieves a comments' do
-      tags 'Comments', 'Another Tag'
+      tags 'Comments'
       produces 'application/json'
       parameter name: :id, in: :path, type: :string
 
@@ -106,7 +106,35 @@ describe 'Comments API' do
         run_test!
       end
 
-      response '404', 'blog not found' do
+      response '404', 'Comment not found' do
+        let(:id) { 'invalid' }
+        run_test!
+      end
+
+      response '406', 'unsupported accept header' do
+        let(:'Accept') { 'application/foo' }
+        run_test!
+      end
+    end
+  end
+  path '/posts' do
+
+    get 'Retrieves a posts' do
+      tags 'Posts'
+      produces 'application/json'
+
+      response '200', 'Post found' do
+        schema type: :object,
+          properties: {
+            content: { type: :string }
+          },
+          required: [ 'content' ]
+
+        let(:id) { Post.create( content: 'bar').id }
+        run_test!
+      end
+
+      response '404', 'Post not found' do
         let(:id) { 'invalid' }
         run_test!
       end
